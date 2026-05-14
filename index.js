@@ -1,16 +1,14 @@
-document.querySelectorAll('a.scroll[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-  
-      const target = document.querySelector(this.getAttribute('href'));
-  
-      if (target) {
-        const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({
-          top: targetTop,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom'; // Должно быть тут
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter> {/* App ОБЯЗАТЕЛЬНО внутри */}
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
